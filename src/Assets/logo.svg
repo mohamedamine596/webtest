@@ -1,0 +1,20 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c084f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7f39fb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rounded rectangle background -->
+  <rect x="5" y="5" width="190" height="50" rx="10" fill="url(#logoGradient)" />
+  
+  <!-- Text: MAB -->
+  <text x="100" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">
+    MAB
+  </text>
+  
+  <!-- Small dot accent -->
+  <circle cx="175" cy="15" r="3" fill="white" opacity="0.8" />
+</svg>

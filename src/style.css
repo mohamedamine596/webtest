@@ -14,6 +14,65 @@ html {
   --imp-text-color: #c770f0;
 }
 
+html[data-theme="light"] {
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(240, 240, 245, 0.9),
+    rgba(230, 230, 240, 0.95)
+  );
+
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(240, 240, 245, 0.8),
+    rgba(230, 230, 240, 0.9)
+  );
+
+  --imp-text-color: #8b3fbf;
+}
+
+html[data-theme="light"] body {
+  background-color: #f5f5f5 !important;
+  color: #1a1a1a !important;
+}
+
+html[data-theme="light"] .navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+html[data-theme="light"] .navbar-nav .nav-link {
+  color: #1a1a1a !important;
+}
+
+html[data-theme="light"] .sticky {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] p {
+  color: #1a1a1a !important;
+}
+
+html[data-theme="light"] .project-card-view {
+  background-color: white !important;
+  box-shadow: 0 4px 5px 3px rgba(139, 63, 191, 0.2) !important;
+}
+
+html[data-theme="light"] .about-activity {
+  color: #1a1a1a !important;
+}
+
+html[data-theme="light"] .footer {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+html[data-theme="light"] .footer h3,
+html[data-theme="light"] .footer-copywright,
+html[data-theme="light"] .footer-body {
+  color: #1a1a1a !important;
+}
+
 .purple {
   color: var(--imp-text-color) !important;
 }
@@ -634,6 +693,28 @@ button:focus {
   justify-content: center;
 }
 
+.resume .react-pdf__Document {
+  display: flex;
+  justify-content: center;
+}
+
+.resume .react-pdf__Page {
+  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
+  border: 2px solid rgba(200, 137, 230, 0.637) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.resume .react-pdf__Page canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+html[data-theme="light"] .resume .react-pdf__Page {
+  box-shadow: 0 4px 5px 3px rgba(139, 63, 191, 0.3) !important;
+  border: 2px solid rgba(139, 63, 191, 0.5) !important;
+}
+
 .resume-left {
   padding-right: 80px !important;
 }
@@ -758,4 +839,87 @@ button:focus {
 }
 .fork-btn-inner::after {
   display: none !important;
+}
+
+/* --------- */
+/* Contact Section */
+/* --------- */
+.contact-section {
+  position: relative !important;
+  padding-top: 110px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+  color: white !important;
+}
+
+.contact-info h3 {
+  font-size: 1.3em !important;
+  margin-bottom: 15px !important;
+}
+
+.contact-info p {
+  font-size: 1em !important;
+  line-height: 1.8 !important;
+}
+
+.contact-section .form-control:focus {
+  border-color: #c770f0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(199, 112, 240, 0.25) !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  color: white !important;
+}
+
+.contact-section .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.contact-section .btn-primary {
+  background-color: #623686 !important;
+  border-color: #623686 !important;
+  transition: all 0.3s ease !important;
+}
+
+.contact-section .btn-primary:hover {
+  background-color: #c770f0 !important;
+  border-color: #c770f0 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* --------- */
+/* Blog Section */
+/* --------- */
+.blog-section {
+  position: relative !important;
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+}
+
+.blog-card {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  height: auto !important;
+}
+
+.blog-card-view {
+  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
+  color: white !important;
+  background-color: transparent !important;
+  opacity: 0.9 !important;
+  transition: all 0.5s ease 0s !important;
+  height: 100% !important;
+  border: 1px solid rgba(200, 137, 230, 0.637) !important;
+}
+
+.blog-card-view:hover {
+  transform: scale(1.02) !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+}
+
+html[data-theme="light"] .blog-card-view {
+  background-color: white !important;
+  box-shadow: 0 4px 5px 3px rgba(139, 63, 191, 0.2) !important;
 }

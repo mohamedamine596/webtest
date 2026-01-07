@@ -1,15 +1,81 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import leaf from "../../Assets/Projects/leaf.png";
-import emotion from "../../Assets/Projects/emotion.png";
-import editor from "../../Assets/Projects/codeEditor.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
 
 function Projects() {
+  const [filter, setFilter] = useState("All");
+
+  console.log("Current filter:", filter);
+
+  const projects = [
+    {
+      imgPath: "https://raw.githubusercontent.com/mohamedamine596/mohamedamine596/main/docuplatform.png",
+      title: "Document Management Platform",
+      description: "A C# project for a document management platform that helps users manage their documents securely. Features include AI-powered document summarization, complex image description, and text-to-image generation using advanced AI models.",
+      ghLink: "https://github.com/mohamedamine596/documentplatform-backend",
+      tags: ["C#", "AI", ".NET"]
+    },
+    {
+      imgPath: "https://raw.githubusercontent.com/mohamedamine596/mohamedamine596/main/frontend.png",
+      title: "Document Platform Frontend",
+      description: "Web frontend built with Vue.js for the document management platform. Provides an intuitive interface for users to upload, manage, and process documents with AI-powered features including summarization and image analysis.",
+      ghLink: "https://github.com/mohamedamine596/Frontend",
+      tags: ["Vue.js", "JavaScript"]
+    },
+    {
+      imgPath: "https://raw.githubusercontent.com/mohamedamine596/mohamedamine596/main/textimages.png",
+      title: "Text to Image Generator",
+      description: "AI-powered application using Stable Diffusion integrated into a web page that helps users generate high-quality images from text prompts. Built with Python for creative content generation.",
+      ghLink: "https://github.com/mohamedamine596/textimages",
+      tags: ["Python", "AI"]
+    },
+    {
+      imgPath: "https://raw.githubusercontent.com/mohamedamine596/mohamedamine596/main/modelai.png",
+      title: "Model AI - PDF Image Extractor",
+      description: "AI project that extracts images from PDF documents and generates contextual descriptions for each extracted image using an AI-based object detection model. Built with Python for intelligent document analysis.",
+      ghLink: "https://github.com/mohamedamine596/model-ai",
+      tags: ["Python", "AI"]
+    },
+    {
+      imgPath: "https://raw.githubusercontent.com/mohamedamine596/mohamedamine596/main/rentacar.png",
+      title: "RentacarMobile",
+      description: "A mobile application built with Java that helps users rent cars in an easy and convenient way. Features include car browsing, booking management, and real-time availability with a user-friendly interface.",
+      ghLink: "https://github.com/mohamedamine596/RentacarMobile",
+      tags: ["Java", "Mobile"]
+    },
+    {
+      imgPath: "https://raw.githubusercontent.com/mohamedamine596/mohamedamine596/main/soa.png",
+      title: "Advanced E-Commerce Platform",
+      description: "Advanced e-commerce project using Spring Boot and React. Demonstrates Service-Oriented Architecture, microservices patterns, secure payment integration, and modern web development best practices.",
+      ghLink: "https://github.com/mohamedamine596/SoaProject",
+      tags: ["Java", "React", "Spring Boot"]
+    },
+    {
+      imgPath: "https://raw.githubusercontent.com/mohamedamine596/mohamedamine596/main/ecommerce.png",
+      title: "E-Commerce Servlet",
+      description: "Basic e-commerce application built with Jakarta EE using Servlets. Features include product catalog, shopping cart functionality, and user management with traditional Java web technologies.",
+      ghLink: "https://github.com/mohamedamine596/EcommerceServlet",
+      tags: ["Java"]
+    },
+    {
+      imgPath: "https://raw.githubusercontent.com/mohamedamine596/mohamedamine596/main/pricepredict.png",
+      title: "Computer Price Predictor",
+      description: "Machine learning project that trains a model using a dataset to predict computer prices based on specifications. Demonstrates data analysis, model training, and predictive analytics using Python and AI techniques.",
+      ghLink: "https://github.com/mohamedamine596/predict-price-computer-IA-",
+      tags: ["Python", "AI"]
+    }
+  ];
+
+  const filters = ["All", "Java", "Python", "React", "Vue.js", "AI", "C#"];
+
+  const filteredProjects = filter === "All" 
+    ? projects 
+    : projects.filter(project => project.tags.includes(filter));
+
+  console.log("Filtered projects count:", filteredProjects.length);
+  console.log("Filtered projects:", filteredProjects.map(p => p.title));
+
   return (
     <Container fluid className="project-section">
       <Particle />
@@ -18,75 +84,52 @@ function Projects() {
           My Recent <strong className="purple">Works </strong>
         </h1>
         <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
+          Here are a few projects I have worked on recently.
         </p>
+        
+        <div style={{ textAlign: "center", marginBottom: "30px", position: "relative", zIndex: 10 }}>
+          {filters.map((tech) => (
+            <Button
+              key={tech}
+              variant={filter === tech ? "primary" : "outline-primary"}
+              style={{
+                margin: "5px",
+                backgroundColor: filter === tech ? "#623686" : "transparent",
+                borderColor: "#c770f0",
+                color: filter === tech ? "white" : "#c770f0",
+                fontWeight: filter === tech ? "bold" : "normal",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                console.log("Filter clicked:", tech);
+                setFilter(tech);
+              }}
+            >
+              {tech}
+            </Button>
+          ))}
+        </div>
+
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={chatify}
-              isBlog={false}
-              title="Chatify"
-              description="Personal Chat Room or Workspace to share resources and hangout with friends build with react.js, Material-UI, and Firebase. Have features which allows user for realtime messaging, image sharing as well as supports reactions on messages."
-              ghLink="https://github.com/soumyajit4419/Chatify"
-              demoLink="https://chatify-49.web.app/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bitsOfCode}
-              isBlog={false}
-              title="Bits-0f-C0de"
-              description="My personal blog page build with Next.js and Tailwind Css which takes the content from makdown files and renders it using Next.js. Supports dark mode and easy to write blogs using markdown."
-              ghLink="https://github.com/soumyajit4419/Bits-0f-C0de"
-              demoLink="https://blogs.soumya-jit.tech/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={editor}
-              isBlog={false}
-              title="Editor.io"
-              description="Online code and markdown editor build with react.js. Online Editor which supports html, css, and js code with instant view of website. Online markdown editor for building README file which supports GFM, Custom Html tags with toolbar and instant preview.Both the editor supports auto save of work using Local Storage"
-              ghLink="https://github.com/soumyajit4419/Editor.io"
-              demoLink="https://editor.soumya-jit.tech/"              
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={leaf}
-              isBlog={false}
-              title="Plant AI"
-              description="Used the plant disease dataset from Kaggle and trained a image classifer model using 'PyTorch' framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. I was able to achieve an accuracy of 98% by using Resnet34 pretrained model."
-              ghLink="https://github.com/soumyajit4419/Plant_AI"
-              demoLink="https://plant49-ai.herokuapp.com/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={suicide}
-              isBlog={false}
-              title="Ai For Social Good"
-              description="Using 'Natural Launguage Processing' for the detection of suicide-related posts and user's suicide ideation in cyberspace  and thus helping in sucide prevention."
-              ghLink="https://github.com/soumyajit4419/AI_For_Social_Good"
-              // demoLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" <--------Please include a demo link here
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={emotion}
-              isBlog={false}
-              title="Face Recognition and Emotion Detection"
-              description="Trained a CNN classifier using 'FER-2013 dataset' with Keras and tensorflow backened. The classifier sucessfully predicted the various types of emotions of human. And the highest accuracy obtained with the model was 60.1%.
-              Then used Open-CV to detect the face in an image and then pass the face to the classifer to predict the emotion of a person."
-              ghLink="https://github.com/soumyajit4419/Face_And_Emotion_Detection"
-              // demoLink="https://blogs.soumya-jit.tech/"      <--------Please include a demo link here 
-            />
-          </Col>
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project, index) => (
+              <Col md={4} className="project-card" key={index}>
+                <ProjectCard
+                  imgPath={project.imgPath}
+                  isBlog={false}
+                  title={project.title}
+                  description={project.description}
+                  ghLink={project.ghLink}
+                />
+              </Col>
+            ))
+          ) : (
+            <Col>
+              <p style={{ color: "white", textAlign: "center", fontSize: "1.2em" }}>
+                No projects found for this filter.
+              </p>
+            </Col>
+          )}
         </Row>
       </Container>
     </Container>

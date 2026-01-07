@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
+import myImg from "../../Assets/portfolipic.png";
 import Tilt from "react-parallax-tilt";
 
 function Home2() {
@@ -13,38 +13,34 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I’m a Software Engineer who loves transforming ideas into
-              reliable, scalable products. Over time, I’ve explored several
-              technologies and found my passion in building high-performance
-              systems and intuitive user experiences.
+              I am a motivated engineering student with a strong passion for
+              software development, artificial intelligence, and building
+              modern web applications.
               <br />
               <br />
-              I’m proficient in
+              I am proficient in
               <i>
                 <b className="purple">
                   {" "}
-                  JavaScript, C++, Rust, Node.js, and Java{" "}
+                  .NET, Java, Vue.js, React, Node.js, and Python{" "}
                 </b>
               </i>
-              — and I enjoy working across both backend and frontend stacks.
+              - and I enjoy working across both backend and frontend stacks.
               <br />
               <br />
               My key areas of interest include developing
               <i>
                 <b className="purple">
                   {" "}
-                  Web Applications, Blockchain Solutions,{" "}
+                  AI Systems, Machine Learning, Computer Vision,{" "}
                 </b>
               </i>
-              and exploring new ways to bridge on-chain and off-chain systems.
+              and building microservices architecture solutions.
               <br />
               <br />
-              Whenever possible, I love building projects with
-              <b className="purple"> Node.js </b> and modern frameworks like{" "}
-              <i>
-                <b className="purple">React.js</b> and{" "}
-                <b className="purple">Next.js</b>.
-              </i>
+              My recent work includes building an AI-enhanced document management
+              platform (<b className="purple">DocuVision</b>) capable of text extraction,
+              summarization, object detection, and image generation.
             </p>
           </Col>
           <Col md={4} className="myAvtar">
