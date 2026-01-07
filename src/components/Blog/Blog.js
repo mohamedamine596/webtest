@@ -12,7 +12,7 @@ function Blog() {
       tags: ["Web Development", "Full-Stack", "Tutorial"],
       readTime: "8 min read",
     },
-  
+    {
       title: "AI Integration in Modern Applications",
       description: "Exploring how artificial intelligence and machine learning are transforming modern web applications and user experiences.",
       date: "March 10, 2024",
