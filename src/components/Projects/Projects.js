@@ -10,6 +10,27 @@ function Projects() {
 
   const projects = [
     {
+      imgPath: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=400&h=300&fit=crop",
+      title: "E-Commerce CI/CD & Kubernetes Deployment",
+      description: "End-to-end DevOps pipeline for a MERN e-commerce app. A Jenkins pipeline runs SonarQube code analysis with a quality gate, builds versioned Docker images for frontend and backend, and pushes them to Docker Hub. The stack is deployed on a local Kubernetes cluster (kind) with MongoDB, and Istio Gateway/VirtualService routes /api traffic to the backend.",
+      ghLink: "https://github.com/mohamedamine596/eecommerce",
+      tags: ["DevOps", "Jenkins", "Docker", "Kubernetes"]
+    },
+    {
+      imgPath: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=400&h=300&fit=crop",
+      title: "Three-Tier App with Docker Compose",
+      description: "Containerized online shop: Nginx frontend → Flask API → PostgreSQL, plus Adminer. Uses isolated front/back networks so the frontend can never reach the database, health-checked startup ordering, a named volume for persistent data, env-based secrets and only two published ports.",
+      ghLink: "https://github.com/mohamedamine596/orche",
+      tags: ["DevOps", "Docker", "Python"]
+    },
+    {
+      imgPath: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=400&h=300&fit=crop",
+      title: "Flask CI Pipeline with GitHub Actions",
+      description: "DevOps/SRE lab: a Flask app with a GitHub Actions pipeline that lints (flake8, pylint), runs unit tests, then builds and publishes a tagged Docker image to GitHub Container Registry (GHCR).",
+      ghLink: "https://github.com/mohamedamine596/devops-sre-course-labs-step-by-step",
+      tags: ["DevOps", "GitHub Actions", "Docker", "Python"]
+    },
+    {
       imgPath: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop",
       title: "Document Management Platform",
       description: "A C# project for a document management platform that helps users manage their documents securely. Features include AI-powered document summarization, complex image description, and text-to-image generation using advanced AI models.",
@@ -67,7 +88,7 @@ function Projects() {
     }
   ];
 
-  const filters = ["All", "Java", "Python", "React", "Vue.js", "AI", "C#"];
+  const filters = ["All", "DevOps", "Java", "Python", "React", "Vue.js", "AI", "C#"];
 
   const filteredProjects = filter === "All" 
     ? projects 
